@@ -2,9 +2,10 @@
 <html>
 
 <head>
-    <title>GIÁO TRÌNH TÂM LÝ HỌC XÃ HỘI</title>
+    <title>Trang chủ</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="access/images/logo.png" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link rel="stylesheet" href="access/css/style.css">
@@ -17,11 +18,9 @@
 
 <body class="">
     <div id="mainBody">
-        <!-- <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button> -->
         <header>
-
             <nav class="navbar navbar-expand-lg navbar-light bg-light my_nav"
-                style="position: fixed; width: 100%; top: 0;">
+                style="position: fixed !important; width: 100%; top: 0;">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarScroll"
                     aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -30,12 +29,13 @@
                     <div class="col-2">
 
                     </div>
-                    <ul class="navbar-nav mr-auto my-2 my-lg-0 navbar-nav-scroll left_nav col-5">
+                    <ul class="navbar-nav mr-auto my-2 my-lg-0 navbar-nav-scroll left_nav col-5 nav_title_content">
                         <li class="nav-item active">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="#card_book">
                                 <!-- <button class="nav_btn"> -->
-                                <button type="button" class="nav_btn btn btn-outline-danger">
-                                    <i class="bi bi-justify nav_icon"></i>
+                                <button type="button" class="nav_btn btn btn-outline-danger" data-toggle="tooltip"
+                                    data-placement="bottom" title="Mục lục">
+                                    <i class="bi bi-list nav_icon"></i>
                                 </button>
                                 <!-- </button> -->
                             </a>
@@ -45,12 +45,12 @@
                             <a class="nav-link" href="#">Trang chủ <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="#about_book">
                                 Về sách
                             </a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="#about_author">
                                 Tác giả
                             </a>
                         </li>
@@ -71,11 +71,11 @@
                             </label>
                             <input type="radio" name="mode" value="0">
                         </div>
-                        <div class="d-flex">
+                        <!-- <div class="d-flex">
                             <input class="form-control mr-2" id="value" type="search" placeholder="Nhập số chương"
                                 aria-label="Nhập số CHƯƠNG">
                             <button class="btn btn-light" type="button" onclick="search()">Tìm</button>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
 
@@ -93,6 +93,7 @@
                     Tôi không đồng ý vậy. Marketing không nên phức tạp và marketing
                     tốt không bao giờ phức tạp."
                 </p>
+                <div id="about_book"></div>
             </div>
             <div class="read_now">
                 <button type="button" class="">ĐỌC NGAY</button>
@@ -108,7 +109,7 @@
                     <span style="color: #B81E24; font-size: 24px;">Marketing truyền miệng :</span><span
                         style="font-size: 24px;">Bí quyết tạo tiếng vang cho thương hiệu</span>
                 </p>
-                <span
+                <span id="about_author"
                     style="text-decoration:none;text-transform:none;color:rgba(0, 0, 0, 1);font-weight:400;font-style:normal;font-size:14px;font-family:Tahoma">Bạn
                     có biết rằng 92% người tiêu dùng tin vào lời giới thiệu từ bạn bè và gia đình hơn bất kỳ hình thức
                     quảng cáo nào khác? Đó chính là sức mạnh của marketing truyền miệng (word-of-mouth
@@ -158,7 +159,7 @@
                 </p>
             </div>
         </div>
-        <div class="card_book">
+        <div class="card_book" id="card_book">
             <div class="" style="width: 300px;">
                 <div class="card profile-card-2 child_card">
                     <div class="card-img-block">
@@ -239,7 +240,7 @@
                             <p>2. Những điều sâu xa - sáu ý tưởng lớn</p>
                             <p>3. Bản tuyên ngôn của marketing truyền thông</p>
                             <p>4. 5 chữ T trong hành động</p>
-                            
+
                     </div>
                 </div>
             </div>
@@ -259,7 +260,7 @@
                             <p>2. Chủ đề: Họ sẽ nói về điều gì?</p>
                             <p>3. Công cụ: Làm sao để lan truyền thông điệp?</p>
                             <p>4. Tham gia: Làm sao để gia nhập vào cuộc trò chuyện</p>
-                            <p>5. Theo dõi: Mọi người đang nói gì về bạn</p>    
+                            <p>5. Theo dõi: Mọi người đang nói gì về bạn</p>
                     </div>
                 </div>
             </div>
