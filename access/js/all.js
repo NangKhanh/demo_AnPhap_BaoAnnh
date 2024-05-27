@@ -1,7 +1,7 @@
 let mybutton = document.getElementById("myBtn");
 
 // When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function() {scrollFunction()};
+window.onscroll = function () { scrollFunction() };
 
 function scrollFunction() {
   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
@@ -17,19 +17,28 @@ function topFunction() {
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-    var elements = document.querySelectorAll('.intro > *');
-    var delay = 500; // Thời gian trễ giữa các hiệu ứng fade in (ms)
-    var duration = 1000; // Thời gian của hiệu ứng fade in (ms)
-    var index = 0;
+// document.addEventListener("DOMContentLoaded", function() {
+//     var elements = document.querySelectorAll('.intro > *');
+//     var delay = 500; // Thời gian trễ giữa các hiệu ứng fade in (ms)
+//     var duration = 1000; // Thời gian của hiệu ứng fade in (ms)
+//     var index = 0;
 
-    function fadeInNext() {
-        if (index < elements.length) {
-            elements[index].classList.add('fade-in');
-            index++;
-            setTimeout(fadeInNext, delay + duration);
-        }
-    }
+//     function fadeInNext() {
+//         if (index < elements.length) {
+//             elements[index].classList.add('fade-in');
+//             index++;
+//             setTimeout(fadeInNext, delay + duration);
+//         }
+//     }
 
-    fadeInNext();
-});
+//     fadeInNext();
+// });
+
+// $(document).ready(function () {
+//   $('a[href*=\\#]').on('click', function (e) {
+//     e.preventDefault();
+//     $('html, body').animate({
+//       scrollTop: $(this.hash).offset().top
+//     }, 500);
+//   });
+// });

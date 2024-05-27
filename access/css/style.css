@@ -1,6 +1,7 @@
 html *
 {
     font-family:Tahoma ;
+    scroll-behavior: smooth;
 }
 .left_nav {
     display: flex;
@@ -111,7 +112,7 @@ header .my_nav {
     /* Rounded corners */
     font-size: 18px;
     /* Increase font size */
-    text-decoration: underline #B81E24;
+    /* text-decoration: underline #B81E24; */
 }
 
 #myBtn:hover {
@@ -129,21 +130,21 @@ header .my_nav {
 .read_now button {
     background-color: #B81E24;
     color: #000000;
-    width: 200px;
-    height: 60px;
+    width: 165px;
+    height: 41px;
     border: 0px;
     border-radius: 30px;
     transition: 300ms;
-    font-size: 24px;
+    font-size: 16px;
 }
 
 
 .read_now button:hover {
     background-color: #000000;
     color: #ffffff;
-    width: 250px;
-    height: 70px;
-    font-size: 26px;
+    width: 180px;
+    height: 46px;
+    font-size: 20px;
 }
 
 .inside_content{
