@@ -1,0 +1,206 @@
+html *
+{
+    font-family:Tahoma ;
+}
+.left_nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* width: 50%; */
+}
+
+.right_nav {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+
+}
+
+.chage_mode input {
+    margin-right: 10px;
+}
+
+.nav_icon {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+
+header .my_nav {
+    background-color: white !important;
+}
+
+.btn-outline-danger {
+    border: none !important;
+    width: 80px !important;
+    height: 50px !important;
+}
+
+.btn-outline-danger:hover {
+    background-color: #B81E24 !important;
+}
+
+.content_nav ul {
+    font-size: large;
+}
+
+.intro {
+    opacity: 0;
+    animation: fadeInAnimation 2s ease-in forwards;
+}
+
+@keyframes fadeInAnimation {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.intro h1 {
+    color: #B81E24;
+    text-align: center;
+}
+
+.intro h2 {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.detail_intro {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.detail_intro p {
+    width: 400px;
+}
+
+#myBtn {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Fixed/sticky position */
+    bottom: 20px;
+    /* Place the button at the bottom of the page */
+    right: 30px;
+    /* Place the button 30px from the right */
+    z-index: 99;
+    /* Make sure it does not overlap */
+    border: none;
+    /* Remove borders */
+    outline: none;
+    /* Remove outline */
+    /* background-color: #ffffff; */
+    /* Set a background color */
+    color: rgb(0, 0, 0);
+    /* Text color */
+    cursor: pointer;
+    /* Add a mouse pointer on hover */
+    padding: 15px;
+    /* Some padding */
+    border-radius: 10px;
+    /* Rounded corners */
+    font-size: 18px;
+    /* Increase font size */
+    text-decoration: underline #B81E24;
+}
+
+#myBtn:hover {
+    background-color: #B81E24;
+    /* Add a dark-grey background on hover */
+    color: #ffffff;
+}
+
+.read_now {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.read_now button {
+    background-color: #B81E24;
+    color: #000000;
+    width: 200px;
+    height: 60px;
+    border: 0px;
+    border-radius: 30px;
+    transition: 300ms;
+    font-size: 24px;
+}
+
+
+.read_now button:hover {
+    background-color: #000000;
+    color: #ffffff;
+    width: 250px;
+    height: 70px;
+    font-size: 26px;
+}
+
+.inside_content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.inside_content img{
+    width: 312px;
+    height: 100%;
+}
+
+.left_content{
+    width: 450px;
+    margin-left: 30px;
+}
+
+.profile-card-2 .card-img-block {
+    float: left;
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+  }
+  
+  .profile-card-2 .card-body {
+    position: relative;
+  }
+  
+  .profile-card-2 .profile {
+    border-radius: 50%;
+    position: absolute;
+    top: -92px;
+    right: 0%;
+    /* max-width: 75px; */
+    border: 0px ;
+    -webkit-transform: translate(-50%, 0%);
+    transform: translate(-50%, 0%);
+    background-color: #B81E24;
+    /* padding: 20px 20px 20px 20px; */
+    width: 75px;
+    height: 75px;
+    transition: 300ms;
+    font-size: 12px;
+  }
+  .profile-card-2 .profile:hover{
+    background-color: #000000;
+    color: #ffffff;
+  }
+
+  .card_book{
+    /* padding-top: 200px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+    background-color: #B81E24;
+    gap: 10px;
+  }
+
+  .child_card{
+    height: 520px;
+  }
