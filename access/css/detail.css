@@ -63,7 +63,7 @@
 }
 
 #sidebar-wrapper {
-    background-color: #B81E24 !important;
+    background-color: white !important;
 }
 
 #sidebar-wrapper a {
@@ -71,7 +71,8 @@
     color: black;
     font-size: 20px;
     align-items: center;
-    margin-top: 30px;
+    /* margin-top: 30px; */
+    background-color: #B81E24;
     /* font-style: italic; */
     /* margin-top: 2; */
 }

@@ -9,6 +9,10 @@ html * {
     justify-content: space-between;
     /* width: 50%; */
 }
+body{
+    border-left: 100px solid #B81E24;
+    border-right: 100px solid #B81E24;
+}
 
 .right_nav {
     display: flex;
@@ -19,6 +23,11 @@ html * {
 
 .chage_mode input {
     margin-right: 10px;
+}
+
+.nav_title_content {
+    margin-left: 30px;
+
 }
 
 .nav_title_content a:hover {
@@ -49,7 +58,14 @@ header .my_nav {
 }
 
 .content_nav ul {
-    font-size: large;
+    color: rgba(0, 0, 0, 1);
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    font-size: 10px;
+    text-decoration: none;
+    font-family: Tahoma;
+    font-style: normal;
+    font-weight: 700;
 }
 
 /* .intro {
