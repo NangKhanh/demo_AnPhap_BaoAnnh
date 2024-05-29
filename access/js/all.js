@@ -155,3 +155,25 @@ jQuery(document).ready(function (e) {
 //   saveSelection();
 //   document.getElementById("context-menu").style.display = "none"; // Ẩn menu tùy chỉnh
 // });
+
+$(document).ready(function () {
+  $('#openMark').on('click', function () {
+    const highlightedTexts = JSON.parse(localStorage.getItem('highlightedTexts')) || [];
+    const modalBody = $('#modalBody');
+    modalBody.empty(); 
+    if (highlightedTexts.length === 0) {
+      modalBody.append('<p>No highlighted texts found.</p>');
+    } else {
+      const ul = $('<ul></ul>');
+      highlightedTexts.forEach(function (text) {
+        ul.append('<li>' + text + '</li>');
+      });
+      modalBody.append(ul);
+    }
+  });
+
+  $('#clearMark').on('click', function () {
+    localStorage.removeItem('highlightedTexts');
+    $('#modalBody').empty().append('<p>No highlighted texts found.</p>');
+  });
+});
