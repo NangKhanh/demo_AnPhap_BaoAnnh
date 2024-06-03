@@ -187,3 +187,6 @@ body p{
     pointer-events: auto;
 }
 
+li{
+    color: #000000 !important;
+}
