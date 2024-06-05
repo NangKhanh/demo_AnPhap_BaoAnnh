@@ -160,7 +160,7 @@ $(document).ready(function () {
   $('#openMark').on('click', function () {
     const highlightedTexts = JSON.parse(localStorage.getItem('highlightedTexts')) || [];
     const modalBody = $('#modalBody');
-    modalBody.empty(); 
+    modalBody.empty();
     if (highlightedTexts.length === 0) {
       modalBody.append('<p>No highlighted texts found.</p>');
     } else {
@@ -177,3 +177,145 @@ $(document).ready(function () {
     $('#modalBody').empty().append('<p>No highlighted texts found.</p>');
   });
 });
+
+function changeMode(mode) {
+  var body = document.getElementById('body');
+  var ul = document.getElementById('ul');
+  var paragraphs = document.getElementsByTagName('p');
+  var spans = document.getElementsByTagName('span');
+  // var ul = document.getElementsByTagName('ul');
+  // var a = document.getElementsByTagName('a');
+
+  if (mode === 'light') {
+    body.style.backgroundColor = 'white';
+    // ul.style.backgroundColor = 'white';
+    body.style.color = 'black';
+    // ul.style.color = 'black';
+
+    for (var i = 0; i < paragraphs.length; i++) {
+      paragraphs[i].style.color = 'black';
+    }
+
+    for (var i = 0; i < spans.length; i++) {
+      spans[i].style.color = 'black';
+    }
+  } else if (mode === 'dark') {
+    body.style.backgroundColor = '#B81E24';
+    // body.style.color = 'white';
+
+    for (var i = 0; i < paragraphs.length; i++) {
+      paragraphs[i].style.color = 'white';
+    }
+
+    for (var i = 0; i < spans.length; i++) {
+      spans[i].style.color = 'white';
+    }
+  }
+}
+
+function changeFont(font) {
+  var paragraphs = document.getElementsByTagName('p');
+  var spans = document.getElementsByTagName('span');
+
+  for (var i = 0; i < paragraphs.length; i++) {
+    paragraphs[i].style.fontFamily = font;
+  }
+
+  for (var i = 0; i < spans.length; i++) {
+    spans[i].style.fontFamily = font;
+  }
+}
+
+
+var currentIndex = -1;
+var foundElements = [];
+
+function search() {
+    clearHighlights();
+
+    // Get search value
+    var searchValue = document.getElementById('value').value.toLowerCase();
+    if (!searchValue) return;
+
+    // Get all text nodes
+    var body = document.body;
+    var textNodes = getTextNodes(body);
+
+    foundElements = [];
+    textNodes.forEach(function(node) {
+        var parentNode = node.parentNode;
+        var text = node.nodeValue.toLowerCase();
+        var index = text.indexOf(searchValue);
+
+        if (index !== -1) {
+            var originalText = node.nodeValue;
+            var span = document.createElement('span');
+            span.className = 'highlight';
+            span.innerText = originalText.substring(index, index + searchValue.length);
+            
+            var before = document.createTextNode(originalText.substring(0, index));
+            var after = document.createTextNode(originalText.substring(index + searchValue.length));
+            
+            parentNode.replaceChild(after, node);
+            parentNode.insertBefore(span, after);
+            parentNode.insertBefore(before, span);
+
+            foundElements.push(span);
+        }
+    });
+
+    if (foundElements.length > 0) {
+        currentIndex = 0;
+        scrollToElement(foundElements[currentIndex]);
+        document.getElementById('nextButton').style.display = 'inline-block';
+        document.getElementById('clearButton').style.display = 'inline-block';
+    } else {
+        currentIndex = -1;
+        document.getElementById('nextButton').style.display = 'none';
+        document.getElementById('clearButton').style.display = 'none';
+    }
+}
+
+function next() {
+    if (foundElements.length > 0) {
+        currentIndex = (currentIndex + 1) % foundElements.length;
+        scrollToElement(foundElements[currentIndex]);
+    }
+}
+
+function clearSearch() {
+    clearHighlights();
+    document.getElementById('value').value = '';
+    currentIndex = -1;
+    foundElements = [];
+    document.getElementById('nextButton').style.display = 'none';
+    document.getElementById('clearButton').style.display = 'none';
+}
+
+function clearHighlights() {
+    var highlighted = document.querySelectorAll('.highlight');
+    highlighted.forEach(function(element) {
+        element.classList.remove('highlight');
+        var text = element.innerText;
+        var parent = element.parentNode;
+        parent.replaceChild(document.createTextNode(text), element);
+        parent.normalize();
+    });
+}
+
+function scrollToElement(element) {
+    element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+function getTextNodes(node) {
+    var textNodes = [];
+    if (node.nodeType == Node.TEXT_NODE) {
+        textNodes.push(node);
+    } else {
+        var children = node.childNodes;
+        for (var i = 0; i < children.length; i++) {
+            textNodes.push.apply(textNodes, getTextNodes(children[i]));
+        }
+    }
+    return textNodes;
+}

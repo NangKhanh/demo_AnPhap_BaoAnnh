@@ -26,9 +26,11 @@
         .lst-kix_pj1k109fuxk5-0>li:before {
             content: "\0025cf   "
         }
-        img{
+
+        img {
             padding-bottom: 50px;
         }
+
         .lst-kix_pj1k109fuxk5-1>li:before {
             content: "\0025cb   "
         }
@@ -2417,7 +2419,8 @@
         table th {
             padding: 0
         }
-        table{
+
+        table {
             margin: auto;
         }
 
@@ -3083,10 +3086,13 @@
         <div class="" id="sidebar-wrapper">
             <!-- <div class="sidebar-heading">Start Bootstrap </div> -->
             <div class="list-group list-group-flush">
-                <ul
-                    style="background-color: #B81E24; list-style: none; padding: 40px 40px 40px 40px; border-radius: 5px;">
+                <ul id="ul"
+                    style="background-color: #B81E24; list-style: none; padding: 40px 40px 40px 40px; border-radius: 5px; line-height: 2.0;">
                     <li>
                         <a href="../index.html" class=""><strong>Trang chủ</strong> </a>
+                    </li>
+                    <li>
+                        <a href="../mucluc.html" class=""><strong>Mục Lục</strong> </a>
                     </li>
                     <li>
                         <a href="#" id="openMark" data-toggle="modal" data-target="#showMark"><strong>Xem đánh
@@ -3112,8 +3118,23 @@
                             </div>
                         </div>
                     </div>
-                    <li>
-                        <a href="#" class=""> <strong>Chương 1</strong> </a>
+                    <li class="dropright">
+                        <a href="#" class="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <strong>Font chữ <i class="bi bi-caret-right-fill"></i></strong> </a>
+                        <div class="dropdown-menu" style="width: 200px;">
+                            <ul
+                                style="list-style: none; border-radius: 5px; line-height: 2.0; cursor: pointer; padding-left: 20px;">
+                                <li onclick="changeFont('tahoma')">
+                                    <strong>Tahoma</strong>
+                                </li>
+                                <li onclick="changeFont('arial')">
+                                    <strong>Arial</strong>
+                                </li>
+                                <li onclick="changeFont('times new roman')">
+                                    <strong>Times new roman</strong>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
                     <li>
                         <a href="#" class=""> <strong>Chương 1</strong> </a>
@@ -3146,47 +3167,29 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-                        <!-- <li class="nav-item active">
-                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Dropdown
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </li> -->
                         <div class="right_nav d-flex" style="margin-right: 10px; align-items: center;">
                             <div class="chage_mode" style="margin-right: 30px;">
                                 <label>
-                                    <span>Light</span>
+                                    <div>Light</div>
                                 </label>
-                                <input type="radio" name="mode" value="1" checked>
+                                <input type="radio" name="mode" onclick="changeMode('light')">
                                 <label style="margin-left: 5px;">
-                                    <span>Dark</span>
+                                    <div>Dark</div>
                                 </label>
-                                <input type="radio" name="mode" value="0">
+                                <input type="radio" name="mode" checked onclick="changeMode('dark')">
                             </div>
                             <div class="d-flex">
-                                <input class="form-control mr-2" id="value" type="search" placeholder="Nhập số chương"
-                                    aria-label="Nhập số CHƯƠNG">
-                                <button class="btn btn-light" type="button" onclick="search()"
-                                    style="margin-right: 85px;">Tìm</button>
+                                <input class="form-control mr-2" id="value" type="search" placeholder="Nhập số chương" aria-label="Nhập số CHƯƠNG">
+                                <button class="btn btn-light" type="button" onclick="search()" style="margin-right: 10px;">Tìm</button>
+                                <button class="btn btn-light" type="button" onclick="next()" id="nextButton" style="display: none; margin-right: 10px;">Next</button>
+                                <button class="btn btn-light" type="button" onclick="clearSearch()" id="clearButton" style="display: none;">Clear</button>
                             </div>
                         </div>
                     </ul>
                 </div>
             </nav>
-            <div style="border-left: 100px solid white;border-right: 100px solid white;display: flex;">
-                <div
+            <div  style="border-left: 100px solid white;border-right: 100px solid white;display: flex;">
+                <div id="body"
                     style="position: fixed; overflow: auto; width: 90%; padding-left: 50px; background-color: #B81E24; height: 100%; padding-bottom: 200px; ">
                     <div style=" margin-top: 10px ; display: flex; justify-content: center;">
                         <div class="" style="width: 80%;  color: #ffffff !important;">
@@ -3196,7 +3199,8 @@
                                         alt="" src="images/image5.png"
                                         style="width: 622.11px; height: 521.33px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
                                         title=""></span></p>
-                            <p class="c29 c32 title" id="h.m4a3yu4clh7q" style="text-align: center;"><span class="c27 c50">Ph&#7847;n I. C&Aacute;C
+                            <p class="c29 c32 title" id="h.m4a3yu4clh7q" style="text-align: center;"><span
+                                    class="c27 c50">Ph&#7847;n I. C&Aacute;C
                                     KH&Aacute;I NI&#7878;M
                                     C&#416; B&#7842;N</span></p>
                             <h1 class="c29 c35" id="h.83ve99aa8whq"><span class="c27">1.</span><span>&nbsp;</span><span
@@ -3878,84 +3882,90 @@
                                     m&#7885;i ng&#432;&#7901;i n&oacute;i v&#7873; c&aacute;c ch&#7911; &#273;&#7873;
                                     &#273;&#7889;i tho&#7841;i
                                     c&#7911;a h&#7885;.</span></p>
-                            <p class="c1"><span class="c3" >D&#432;&#7899;i &#273;&acirc;y l&agrave; b&#7843;ng m&agrave;
+                            <p class="c1"><span class="c3">D&#432;&#7899;i &#273;&acirc;y l&agrave; b&#7843;ng m&agrave;
                                     t&ocirc;i
                                     &#273;&atilde; &#273;&uacute;c k&#7871;t ra &#273;&#432;&#7907;c:[1]</span></p><a
                                 id="t.6357f2f48a938b2338a79d9eb732ef96529d19a1"></a><a id="t.0"></a>
-                                <div>
+                            <div>
 
-                                    <table class="c25">
-                                        <tr class="c34">
-                                            <td class="c38" colspan="3" rowspan="1">
-                                                <p class="c5 c29"><span class="c0">BA L&Yacute; DO M&#7884;I NG&#431;&#7900;I
-                                                        N&Oacute;I V&#7872;
-                                                        B&#7840;N</span></p>
-                                            </td>
-                                        </tr>
-                                        <tr class="c34">
-                                            <td class="c45" colspan="1" rowspan="1">
-                                                <p class="c5 c29"><span class="c0">B&#7840;N</span></p>
-                                            </td>
-                                            <td class="c46" colspan="1" rowspan="1">
-                                                <p class="c5 c29"><span class="c0">T&Ocirc;I</span></p>
-                                            </td>
-                                            <td class="c39" colspan="1" rowspan="1">
-                                                <p class="c5 c29"><span class="c0">CH&Uacute;NG TA</span></p>
-                                            </td>
-                                        </tr>
-                                        <tr class="c26">
-                                            <td class="c45" colspan="1" rowspan="1">
-                                                <p class="c12"><span class="c3">T&#7845;t c&#7843; l&agrave; v&#7873;
-                                                        h&agrave;ng
-                                                        ho&aacute;, c&ocirc;ng
-                                                        ty v&agrave; s&#7843;n ph&#7849;m.</span></p>
-                                                <p class="c36"><span class="c3">- H&#7885; y&ecirc;u b&#7841;n (v&agrave;
-                                                        &#7911;ng
-                                                        h&#7897; cho
-                                                        h&agrave;ng ho&aacute; c&#7911;a b&#7841;n.)</span></p>
-                                                <p class="c36"><span class="c3">- H&#7885; gh&eacute;t b&#7841;n.</span></p>
-                                                <p class="c36"><span class="c3">- B&#7841;n cho h&#7885; ch&#7911; &#273;&#7873;
-                                                        &#273;&#7875;
-                                                        b&agrave;n t&aacute;n.</span></p>
-                                                <p class="c36"><span class="c3">- B&#7841;n khi&#7871;n h&#7885; d&#7877;
-                                                        d&agrave;ng n&oacute;i
-                                                        v&#7873; b&#7841;n.</span></p>
-                                            </td>
-                                            <td class="c46" colspan="1" rowspan="1">
-                                                <p class="c12"><span class="c3">T&#7845;t c&#7843; l&agrave; v&#7873;
-                                                        ng&#432;&#7901;i n&oacute;i:
-                                                        L&agrave;m h&#7885; c&#7843;m th&#7845;y tho&#7843;i m&aacute;i.</span>
-                                                </p>
-                                                <p class="c36"><span class="c3">- H&#7885; c&#7843;m th&#7845;y m&igrave;nh
-                                                        th&ocirc;ng minh.</span></p>
-                                                <p class="c36"><span class="c3">- H&#7885; c&#7843;m th&#7845;y m&igrave;nh quan
-                                                        tr&#7885;ng.</span></p>
-                                                <p class="c36"><span class="c3">- H&#7885; mu&#7889;n gi&uacute;p &#273;&#7905;
-                                                        m&#7885;i
-                                                        ng&#432;&#7901;i.</span></p>
-                                                <p class="c36"><span class="c3">- H&#7885; mu&#7889;n th&#7875; hi&#7879;n
-                                                        b&#7843;n
-                                                        th&acirc;n.</span>
-                                                </p>
-                                            </td>
-                                            <td class="c39" colspan="1" rowspan="1">
-                                                <p class="c12"><span class="c3">T&#7845;t c&#7843; l&agrave; v&#7873;
-                                                        nh&oacute;m:
-                                                        C&#7843;m gi&aacute;c
-                                                        &#273;&#432;&#7907;c k&#7871;t n&#7889;i.</span></p>
-                                                <p class="c36"><span class="c3">- H&#7885; l&agrave; m&#7897;t ph&#7847;n trong
-                                                        th&#432;&#417;ng
-                                                        hi&#7879;u gia &#273;&igrave;nh.</span></p>
-                                                <p class="c36"><span class="c3">- H&#7885; thu&#7897;c v&#7873; m&#7897;t
-                                                        c&#7897;ng
-                                                        &#273;&#7891;ng.</span></p>
-                                                <p class="c36"><span class="c3">- H&#7885; l&agrave; th&agrave;nh vi&ecirc;n
-                                                        c&#7911;a m&#7897;t
-                                                        nh&oacute;m.</span></p>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
+                                <table class="c25">
+                                    <tr class="c34">
+                                        <td class="c38" colspan="3" rowspan="1">
+                                            <p class="c5 c29"><span class="c0">BA L&Yacute; DO M&#7884;I
+                                                    NG&#431;&#7900;I
+                                                    N&Oacute;I V&#7872;
+                                                    B&#7840;N</span></p>
+                                        </td>
+                                    </tr>
+                                    <tr class="c34">
+                                        <td class="c45" colspan="1" rowspan="1">
+                                            <p class="c5 c29"><span class="c0">B&#7840;N</span></p>
+                                        </td>
+                                        <td class="c46" colspan="1" rowspan="1">
+                                            <p class="c5 c29"><span class="c0">T&Ocirc;I</span></p>
+                                        </td>
+                                        <td class="c39" colspan="1" rowspan="1">
+                                            <p class="c5 c29"><span class="c0">CH&Uacute;NG TA</span></p>
+                                        </td>
+                                    </tr>
+                                    <tr class="c26">
+                                        <td class="c45" colspan="1" rowspan="1">
+                                            <p class="c12"><span class="c3">T&#7845;t c&#7843; l&agrave; v&#7873;
+                                                    h&agrave;ng
+                                                    ho&aacute;, c&ocirc;ng
+                                                    ty v&agrave; s&#7843;n ph&#7849;m.</span></p>
+                                            <p class="c36"><span class="c3">- H&#7885; y&ecirc;u b&#7841;n (v&agrave;
+                                                    &#7911;ng
+                                                    h&#7897; cho
+                                                    h&agrave;ng ho&aacute; c&#7911;a b&#7841;n.)</span></p>
+                                            <p class="c36"><span class="c3">- H&#7885; gh&eacute;t b&#7841;n.</span></p>
+                                            <p class="c36"><span class="c3">- B&#7841;n cho h&#7885; ch&#7911;
+                                                    &#273;&#7873;
+                                                    &#273;&#7875;
+                                                    b&agrave;n t&aacute;n.</span></p>
+                                            <p class="c36"><span class="c3">- B&#7841;n khi&#7871;n h&#7885; d&#7877;
+                                                    d&agrave;ng n&oacute;i
+                                                    v&#7873; b&#7841;n.</span></p>
+                                        </td>
+                                        <td class="c46" colspan="1" rowspan="1">
+                                            <p class="c12"><span class="c3">T&#7845;t c&#7843; l&agrave; v&#7873;
+                                                    ng&#432;&#7901;i n&oacute;i:
+                                                    L&agrave;m h&#7885; c&#7843;m th&#7845;y tho&#7843;i
+                                                    m&aacute;i.</span>
+                                            </p>
+                                            <p class="c36"><span class="c3">- H&#7885; c&#7843;m th&#7845;y m&igrave;nh
+                                                    th&ocirc;ng minh.</span></p>
+                                            <p class="c36"><span class="c3">- H&#7885; c&#7843;m th&#7845;y m&igrave;nh
+                                                    quan
+                                                    tr&#7885;ng.</span></p>
+                                            <p class="c36"><span class="c3">- H&#7885; mu&#7889;n gi&uacute;p
+                                                    &#273;&#7905;
+                                                    m&#7885;i
+                                                    ng&#432;&#7901;i.</span></p>
+                                            <p class="c36"><span class="c3">- H&#7885; mu&#7889;n th&#7875; hi&#7879;n
+                                                    b&#7843;n
+                                                    th&acirc;n.</span>
+                                            </p>
+                                        </td>
+                                        <td class="c39" colspan="1" rowspan="1">
+                                            <p class="c12"><span class="c3">T&#7845;t c&#7843; l&agrave; v&#7873;
+                                                    nh&oacute;m:
+                                                    C&#7843;m gi&aacute;c
+                                                    &#273;&#432;&#7907;c k&#7871;t n&#7889;i.</span></p>
+                                            <p class="c36"><span class="c3">- H&#7885; l&agrave; m&#7897;t ph&#7847;n
+                                                    trong
+                                                    th&#432;&#417;ng
+                                                    hi&#7879;u gia &#273;&igrave;nh.</span></p>
+                                            <p class="c36"><span class="c3">- H&#7885; thu&#7897;c v&#7873; m&#7897;t
+                                                    c&#7897;ng
+                                                    &#273;&#7891;ng.</span></p>
+                                            <p class="c36"><span class="c3">- H&#7885; l&agrave; th&agrave;nh vi&ecirc;n
+                                                    c&#7911;a m&#7897;t
+                                                    nh&oacute;m.</span></p>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
                             <p class="c1"><span class="c3">&nbsp;</span></p>
                             <p class="c1"><span class="c3">M&#7885;i ng&#432;&#7901;i &#273;&#7873;u th&iacute;ch
                                     tr&ograve;

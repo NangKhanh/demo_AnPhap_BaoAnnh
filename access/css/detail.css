@@ -190,3 +190,6 @@ body p{
 li{
     color: #000000 !important;
 }
+.highlight {
+    background-color: #007bff;
+}
