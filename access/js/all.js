@@ -328,3 +328,65 @@ $(document).ready(function () {
   });
 });
 
+
+$(document).ready(function () {
+  const playBtn = $('.player__play');
+  const prevBtn = $('.player__prev');
+  const nextBtn = $('.player__next');
+  const playlist = [
+    '../access/js/1.mp3',
+    '../access/js/2.mp3',
+    '../access/js/3.mp3',
+    '../access/js/4.mp3',
+    '../access/js/5.mp3'
+  ];
+
+  let currentSongIndex = 0;
+  let audio = new Audio(playlist[currentSongIndex]);
+
+  let isPlaying = false;
+
+  // // Kiểm tra xem âm thanh đã sẵn sàng phát chưa
+  // audio.addEventListener('loadedmetadata', function() {
+  //   if (isPlaying) {
+  //     audio.play();
+  //   }
+  // });
+  playBtn.click(function () {
+
+    if (isPlaying) {
+      audio.pause();
+      isPlaying = false;
+    } else {
+      audio.play();
+      isPlaying = true;
+    }
+  });
+
+  prevBtn.click(function () {
+    if (isPlaying) {
+      audio.pause();
+    }
+    currentSongIndex--;
+    if (currentSongIndex < 0) {
+      currentSongIndex = playlist.length - 1;
+    }
+    console.log(playlist[currentSongIndex]);
+    audio.src = playlist[currentSongIndex];
+    audio.play();
+    isPlaying = true;
+  });
+
+  nextBtn.click(function () {
+    if (isPlaying) {
+      audio.pause();
+    }
+    currentSongIndex++;
+    if (currentSongIndex >= playlist.length) {
+      currentSongIndex = 0;
+    }
+    audio.src = playlist[currentSongIndex];
+    audio.play();
+    isPlaying = true;
+  });
+});
