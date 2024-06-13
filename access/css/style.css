@@ -316,3 +316,7 @@ header .my_nav {
 }
 
 /*  */
+
+span,p{
+    text-align: justify !important
+}

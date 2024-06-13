@@ -3080,6 +3080,7 @@
     <div class="" style="position: absolute;">
 
     </div>
+
     <div class="d-flex" id="wrapper">
 
         <!-- Sidebar -->
@@ -3137,8 +3138,25 @@
                         </div>
                     </li>
                     <li>
-                        <a href="#" class=""> <strong>Chương 1</strong> </a>
-
+                        <div class="">
+                            <label>
+                                <div style="font-size: 20px !important; "><strong>Light</strong></div>
+                            </label>
+                            <input type="radio" name="mode" checked onclick="changeMode('light')"
+                                style="cursor: pointer">
+                            <label style="margin-left: 5px;">
+                                <div style="font-size: 20px !important; "><strong>Dark</strong></div>
+                            </label>
+                            <input type="radio" name="mode" onclick="changeMode('dark')" style="cursor: pointer">
+                        </div>
+                    </li>
+                    <li>
+                        <button id="decrease-font"
+                            style="border: 0px; border-radius: 100% 100% 0% 100% / 100% 0% 0% 100%  ; width: 30px;">-
+                            A</button>
+                        <button id="increase-font"
+                            style="border: 0px; border-radius: 0% 100% 100% 0% / 0% 100% 100% 10% ; width: 30px;">A
+                            +</button>
                     </li>
                 </ul>
 
@@ -3168,37 +3186,27 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                         <div class="right_nav d-flex" style="margin-right: 10px; align-items: center;">
-                            <div class="chage_mode" style="margin-right: 30px;">
-                                <label>
-                                    <div>Light</div>
-                                </label>
-                                <input type="radio" name="mode" onclick="changeMode('light')">
-                                <label style="margin-left: 5px;">
-                                    <div>Dark</div>
-                                </label>
-                                <input type="radio" name="mode" checked onclick="changeMode('dark')">
-                            </div>
+
                             <div class="d-flex">
-                                <input class="form-control mr-2" id="value" type="search" placeholder="Nhập số chương" aria-label="Nhập số CHƯƠNG">
-                                <button class="btn btn-light" type="button" onclick="search()" style="margin-right: 10px;">Tìm</button>
-                                <button class="btn btn-light" type="button" onclick="next()" id="nextButton" style="display: none; margin-right: 10px;">Next</button>
-                                <button class="btn btn-light" type="button" onclick="clearSearch()" id="clearButton" style="display: none;">Clear</button>
+                                <input class="form-control mr-2" id="value" type="search" placeholder="Nhập từ khóa"
+                                    aria-label="Nhập số CHƯƠNG">
+                                <button class="btn btn-light" type="button" onclick="search()"
+                                    style="margin-right: 10px;">Tìm</button>
+                                <button class="btn btn-light" type="button" onclick="next()" id="nextButton"
+                                    style="display: none; margin-right: 10px;">Next</button>
+                                <button class="btn btn-light" type="button" onclick="clearSearch()" id="clearButton"
+                                    style="display: none;">Clear</button>
                             </div>
                         </div>
                     </ul>
                 </div>
             </nav>
-            <div  style="border-left: 100px solid white;border-right: 100px solid white;display: flex;">
+            <div style="border-left: 100px solid white;border-right: 100px solid white;display: flex;">
                 <div id="body"
                     style="position: fixed; overflow: auto; width: 90%; padding-left: 50px; background-color: #B81E24; height: 100%; padding-bottom: 200px; ">
                     <div style=" margin-top: 10px ; display: flex; justify-content: center;">
                         <div class="" style="width: 80%;  color: #ffffff !important;">
 
-                            <p class="c17" style="display: flex; justify-content: center;"><span
-                                    style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #ffffff; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 622.11px; height: 521.33px;"><img
-                                        alt="" src="images/image5.png"
-                                        style="width: 622.11px; height: 521.33px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
-                                        title=""></span></p>
                             <p class="c29 c32 title" id="h.m4a3yu4clh7q" style="text-align: center;"><span
                                     class="c27 c50">Ph&#7847;n I. C&Aacute;C
                                     KH&Aacute;I NI&#7878;M
@@ -7359,52 +7367,14 @@
                                 <!-- <i class="uil uil-eye"></i> -->
                                 <span>Mark</span>
                             </li>
-                            <li class="item share">
-                                <div>
-                                    <!-- <i class="uil uil-share"></i> -->
-                                    <span>Share</span>
-                                </div>
-                                <!-- <i class="uil uil-angle-right"></i> -->
-                                <ul class="share-menu">
-                                    <li class="item">
-                                        <!-- <i class="uil uil-twitter-alt"></i> -->
-                                        <span>Twitter</span>
-                                    </li>
-                                    <li class="item">
-                                        <!-- <i class="uil uil-instagram"></i> -->
-                                        <span>Instagram</span>
-                                    </li>
-                                    <li class="item">
-                                        <!-- <i class="uil uil-dribbble"></i> -->
-                                        <span>Dribble</span>
-                                    </li>
-                                    <li class="item">
-                                        <!-- <i class="uil uil-telegram-alt"></i> -->
-                                        <span>Telegram</span>
-                                    </li>
-                                </ul>
+                            <li class="item" onclick="topFunction2()">
+                                <span>Scroll to top</span>
                             </li>
-                            <li class="item">
-                                <!-- <i class="uil uil-link-alt"></i> -->
-                                <span>Get Link</span>
-                            </li>
-                            <li class="item">
-                                <!-- <i class="uil uil-edit"></i> -->
-                                <span>Rename</span>
-                            </li>
-                            <li class="item">
-                                <!-- <i class="uil uil-trash-alt"></i> -->
-                                <span>Delete</span>
                             </li>
                         </ul>
-                        <div class="setting">
-                            <li class="item">
-                                <!-- <i class="uil uil-setting"></i> -->
-                                <span>Settings</span>
-                            </li>
-                        </div>
                     </div>
                 </div>
+
             </div>
         </div>
         <!-- /#page-content-wrapper -->

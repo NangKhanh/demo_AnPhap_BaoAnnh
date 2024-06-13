@@ -329,8 +329,25 @@
                         </div>
                     </li>
                     <li>
-                        <a href="#" class=""> <strong>Chương 1</strong> </a>
-
+                        <div class="">
+                            <label>
+                                <div style="font-size: 20px !important; "><strong>Light</strong></div>
+                            </label>
+                            <input type="radio" name="mode" checked onclick="changeMode('light')"
+                                style="cursor: pointer">
+                            <label style="margin-left: 5px;">
+                                <div style="font-size: 20px !important; "><strong>Dark</strong></div>
+                            </label>
+                            <input type="radio" name="mode" onclick="changeMode('dark')" style="cursor: pointer">
+                        </div>
+                    </li>
+                    <li>
+                        <button id="decrease-font"
+                            style="border: 0px; border-radius: 100% 100% 0% 100% / 100% 0% 0% 100%  ; width: 30px;">-
+                            A</button>
+                        <button id="increase-font"
+                            style="border: 0px; border-radius: 0% 100% 100% 0% / 0% 100% 100% 10% ; width: 30px;">A
+                            +</button>
                     </li>
                 </ul>
 
@@ -360,16 +377,6 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                         <div class="right_nav d-flex" style="margin-right: 10px; align-items: center;">
-                            <div class="chage_mode" style="margin-right: 30px;">
-                                <label>
-                                    <div>Light</div>
-                                </label>
-                                <input type="radio" name="mode" onclick="changeMode('light')">
-                                <label style="margin-left: 5px;">
-                                    <div>Dark</div>
-                                </label>
-                                <input type="radio" name="mode" checked onclick="changeMode('dark')">
-                            </div>
                             <div class="d-flex">
                                 <input class="form-control mr-2" id="value" type="search" placeholder="Nhập số chương" aria-label="Nhập số CHƯƠNG">
                                 <button class="btn btn-light" type="button" onclick="search()" style="margin-right: 10px;">Tìm</button>
@@ -628,50 +635,11 @@
                                 <!-- <i class="uil uil-eye"></i> -->
                                 <span>Mark</span>
                             </li>
-                            <li class="item share">
-                                <div>
-                                    <!-- <i class="uil uil-share"></i> -->
-                                    <span>Share</span>
-                                </div>
-                                <!-- <i class="uil uil-angle-right"></i> -->
-                                <ul class="share-menu">
-                                    <li class="item">
-                                        <!-- <i class="uil uil-twitter-alt"></i> -->
-                                        <span>Twitter</span>
-                                    </li>
-                                    <li class="item">
-                                        <!-- <i class="uil uil-instagram"></i> -->
-                                        <span>Instagram</span>
-                                    </li>
-                                    <li class="item">
-                                        <!-- <i class="uil uil-dribbble"></i> -->
-                                        <span>Dribble</span>
-                                    </li>
-                                    <li class="item">
-                                        <!-- <i class="uil uil-telegram-alt"></i> -->
-                                        <span>Telegram</span>
-                                    </li>
-                                </ul>
+                            <li class="item" onclick="topFunction2()">
+                                <span>Scroll to top</span>
                             </li>
-                            <li class="item">
-                                <!-- <i class="uil uil-link-alt"></i> -->
-                                <span>Get Link</span>
-                            </li>
-                            <li class="item">
-                                <!-- <i class="uil uil-edit"></i> -->
-                                <span>Rename</span>
-                            </li>
-                            <li class="item">
-                                <!-- <i class="uil uil-trash-alt"></i> -->
-                                <span>Delete</span>
                             </li>
                         </ul>
-                        <div class="setting">
-                            <li class="item">
-                                <!-- <i class="uil uil-setting"></i> -->
-                                <span>Settings</span>
-                            </li>
-                        </div>
                     </div>
                 </div>
             </div>

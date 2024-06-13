@@ -16,7 +16,10 @@ function topFunction() {
   document.body.scrollTop = 0; // For Safari
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
-
+function topFunction2() {
+  document.getElementById("body").scrollTop = 0; // For Safari
+  document.getElementById("body").scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
 // document.addEventListener("DOMContentLoaded", function() {
 //     var elements = document.querySelectorAll('.intro > *');
 //     var delay = 500; // Thời gian trễ giữa các hiệu ứng fade in (ms)
@@ -45,8 +48,7 @@ function topFunction() {
 
 
 // right click
-const contextMenu = document.querySelector(".wrapper"),
-  shareMenu = contextMenu.querySelector(".share-menu");
+const contextMenu = document.querySelector(".wrapper")
 
 window.addEventListener("contextmenu", e => {
   e.preventDefault();
@@ -60,14 +62,7 @@ window.addEventListener("contextmenu", e => {
     cmWidth = contextMenu.offsetWidth,
     cmHeight = contextMenu.offsetHeight;
 
-  // Điều chỉnh vị trí của shareMenu nếu cần thiết
-  if (x > (winWidth - cmWidth - shareMenu.offsetWidth)) {
-    shareMenu.style.left = "-200px";
-    shareMenu.style.right = "";
-  } else {
-    shareMenu.style.left = "";
-    shareMenu.style.right = "-200px";
-  }
+
 
   // Điều chỉnh vị trí x nếu menu tràn ra ngoài cửa sổ
   if (x + cmWidth > winWidth) {
@@ -187,21 +182,10 @@ function changeMode(mode) {
   // var a = document.getElementsByTagName('a');
 
   if (mode === 'light') {
-    body.style.backgroundColor = 'white';
+    // body.style.backgroundColor = 'white';
     // ul.style.backgroundColor = 'white';
-    body.style.color = 'black';
-    // ul.style.color = 'black';
-
-    for (var i = 0; i < paragraphs.length; i++) {
-      paragraphs[i].style.color = 'black';
-    }
-
-    for (var i = 0; i < spans.length; i++) {
-      spans[i].style.color = 'black';
-    }
-  } else if (mode === 'dark') {
-    body.style.backgroundColor = '#B81E24';
-    // body.style.color = 'white';
+    body.style.color = 'white';
+    // ul.style.color = 'white';
 
     for (var i = 0; i < paragraphs.length; i++) {
       paragraphs[i].style.color = 'white';
@@ -209,6 +193,17 @@ function changeMode(mode) {
 
     for (var i = 0; i < spans.length; i++) {
       spans[i].style.color = 'white';
+    }
+  } else if (mode === 'dark') {
+    // body.style.backgroundColor = '#B81E24';
+    // body.style.color = 'white';
+
+    for (var i = 0; i < paragraphs.length; i++) {
+      paragraphs[i].style.color = 'black';
+    }
+
+    for (var i = 0; i < spans.length; i++) {
+      spans[i].style.color = 'black';
     }
   }
 }
@@ -231,91 +226,105 @@ var currentIndex = -1;
 var foundElements = [];
 
 function search() {
-    clearHighlights();
+  clearHighlights();
 
-    // Get search value
-    var searchValue = document.getElementById('value').value.toLowerCase();
-    if (!searchValue) return;
+  // Get search value
+  var searchValue = document.getElementById('value').value.toLowerCase();
+  if (!searchValue) return;
 
-    // Get all text nodes
-    var body = document.body;
-    var textNodes = getTextNodes(body);
+  // Get all text nodes
+  var body = document.body;
+  var textNodes = getTextNodes(body);
 
-    foundElements = [];
-    textNodes.forEach(function(node) {
-        var parentNode = node.parentNode;
-        var text = node.nodeValue.toLowerCase();
-        var index = text.indexOf(searchValue);
+  foundElements = [];
+  textNodes.forEach(function (node) {
+    var parentNode = node.parentNode;
+    var text = node.nodeValue.toLowerCase();
+    var index = text.indexOf(searchValue);
 
-        if (index !== -1) {
-            var originalText = node.nodeValue;
-            var span = document.createElement('span');
-            span.className = 'highlight';
-            span.innerText = originalText.substring(index, index + searchValue.length);
-            
-            var before = document.createTextNode(originalText.substring(0, index));
-            var after = document.createTextNode(originalText.substring(index + searchValue.length));
-            
-            parentNode.replaceChild(after, node);
-            parentNode.insertBefore(span, after);
-            parentNode.insertBefore(before, span);
+    if (index !== -1) {
+      var originalText = node.nodeValue;
+      var span = document.createElement('span');
+      span.className = 'highlight';
+      span.innerText = originalText.substring(index, index + searchValue.length);
 
-            foundElements.push(span);
-        }
-    });
+      var before = document.createTextNode(originalText.substring(0, index));
+      var after = document.createTextNode(originalText.substring(index + searchValue.length));
 
-    if (foundElements.length > 0) {
-        currentIndex = 0;
-        scrollToElement(foundElements[currentIndex]);
-        document.getElementById('nextButton').style.display = 'inline-block';
-        document.getElementById('clearButton').style.display = 'inline-block';
-    } else {
-        currentIndex = -1;
-        document.getElementById('nextButton').style.display = 'none';
-        document.getElementById('clearButton').style.display = 'none';
+      parentNode.replaceChild(after, node);
+      parentNode.insertBefore(span, after);
+      parentNode.insertBefore(before, span);
+
+      foundElements.push(span);
     }
+  });
+
+  if (foundElements.length > 0) {
+    currentIndex = 0;
+    scrollToElement(foundElements[currentIndex]);
+    document.getElementById('nextButton').style.display = 'inline-block';
+    document.getElementById('clearButton').style.display = 'inline-block';
+  } else {
+    currentIndex = -1;
+    document.getElementById('nextButton').style.display = 'none';
+    document.getElementById('clearButton').style.display = 'none';
+  }
 }
 
 function next() {
-    if (foundElements.length > 0) {
-        currentIndex = (currentIndex + 1) % foundElements.length;
-        scrollToElement(foundElements[currentIndex]);
-    }
+  if (foundElements.length > 0) {
+    currentIndex = (currentIndex + 1) % foundElements.length;
+    scrollToElement(foundElements[currentIndex]);
+  }
 }
 
 function clearSearch() {
-    clearHighlights();
-    document.getElementById('value').value = '';
-    currentIndex = -1;
-    foundElements = [];
-    document.getElementById('nextButton').style.display = 'none';
-    document.getElementById('clearButton').style.display = 'none';
+  clearHighlights();
+  document.getElementById('value').value = '';
+  currentIndex = -1;
+  foundElements = [];
+  document.getElementById('nextButton').style.display = 'none';
+  document.getElementById('clearButton').style.display = 'none';
 }
 
 function clearHighlights() {
-    var highlighted = document.querySelectorAll('.highlight');
-    highlighted.forEach(function(element) {
-        element.classList.remove('highlight');
-        var text = element.innerText;
-        var parent = element.parentNode;
-        parent.replaceChild(document.createTextNode(text), element);
-        parent.normalize();
-    });
+  var highlighted = document.querySelectorAll('.highlight');
+  highlighted.forEach(function (element) {
+    element.classList.remove('highlight');
+    var text = element.innerText;
+    var parent = element.parentNode;
+    parent.replaceChild(document.createTextNode(text), element);
+    parent.normalize();
+  });
 }
 
 function scrollToElement(element) {
-    element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  element.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
 
 function getTextNodes(node) {
-    var textNodes = [];
-    if (node.nodeType == Node.TEXT_NODE) {
-        textNodes.push(node);
-    } else {
-        var children = node.childNodes;
-        for (var i = 0; i < children.length; i++) {
-            textNodes.push.apply(textNodes, getTextNodes(children[i]));
-        }
+  var textNodes = [];
+  if (node.nodeType == Node.TEXT_NODE) {
+    textNodes.push(node);
+  } else {
+    var children = node.childNodes;
+    for (var i = 0; i < children.length; i++) {
+      textNodes.push.apply(textNodes, getTextNodes(children[i]));
     }
-    return textNodes;
+  }
+  return textNodes;
 }
+$(document).ready(function () {
+  $('#decrease-font').click(function () {
+    $('p, span').css('font-size', function (index, value) {
+      return (parseInt(value) - 2) + 'px';
+    });
+  });
+
+  $('#increase-font').click(function () {
+    $('p, span').css('font-size', function (index, value) {
+      return (parseInt(value) + 2) + 'px';
+    });
+  });
+});
+
